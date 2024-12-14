@@ -13,7 +13,7 @@ const DataSchema = mongoose.Schema({
   size:{type:String, require: true},
 
 
-  productID: {type:mongoose.Schema.Types.ProductID, require: true},
+  productID: {type:mongoose.Schema.Types.ObjectId, require: true},
 },
 {timestamps: true, versionKey:false}
 )
