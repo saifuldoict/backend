@@ -15,7 +15,6 @@ exports.ProductCategoryList = async(req, res)=>{
     let result = await CategoryListService();
     return res.status(200).json(result)
     
-
 }
 
 exports.ProductSliderList = async(req, res)=>{
@@ -23,11 +22,10 @@ exports.ProductSliderList = async(req, res)=>{
  return res.status(200).json(result)
 }
 
-exports.ProductListByBrand = async(req, res)=>{
+exports.ProductListByBrand = async(res)=>{
     let result = await ListByBrandService();
     return res.status(200).json(result)
 
- 
 }
 
 exports.ProductListByCategory = async(req, res)=>{
