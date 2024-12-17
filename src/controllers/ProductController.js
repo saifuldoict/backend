@@ -43,15 +43,22 @@ exports.ProductListByRemark = async(req, res)=>{
 
 
 exports.ProductListBySmilier = async(req, res)=>{
-    let result = await ListBySmilierService();
+    let result = await ListBySmilierService(req);
+    return res.status(200).json(result)
+ 
+}
+
+exports.ProductDetails = async(req, res)=>{
+    let result = await DetailsService (req);
     return res.status(200).json(result)
  
 }
 
 
+
 exports.ProductListByKeyword = async(req, res)=>{
-    let result = await ListByKeywordService ();
-    return res.status(200).json(result)
+let result = await ListByKeywordService(req);
+return res.status(200).json(result)
  
 }
 
@@ -61,14 +68,10 @@ exports.ProductListByFilter = async(req, res)=>{
     return res.status(200).json(result)
  
 }
-exports.ProductDetails = async(req, res)=>{
-    let result = await DetailsService ();
-    return res.status(200).json(result)
- 
-}
+
 
 exports.ProductReviewList = async(req, res)=>{
-    let result = await ReviewListService ();
+    let result = await ReviewListService(req);
     return res.status(200).json(result)
  
 }
