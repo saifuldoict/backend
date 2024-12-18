@@ -1,15 +1,17 @@
 const nodemailer = require('nodemailer');
 
 const EmailSend= async(EmailTo, EmailText, EmailSubject)=>{
-    nodemailer.createTransport({
-        host: "mail.teamrabbil.com",
-        port: 25,
-        secure: false,
-        auth: {user: "info@teamrabbil.com", pass: '~sR4[bhaC[Qs'},
-        tls: {rejectUnauthorized: false}
+   let transporter =  nodemailer.createTransport({
+    host: "mail.themesoft69.com",
+    port: 465,
+    secure: true, // Use `true` for port 465, `false` for all other ports
+    auth: {
+      user: "mern_ostad@themesoft69.com",
+      pass: "h4e24DFTj6v)",
+    },
     })
 
-    let mailOption={
+    let mailOptions={
         from: 'Task manager MERN <info@teamrabbil.com>',
         to: EmailTo,
         subject: EmailSubject,
@@ -18,4 +20,4 @@ const EmailSend= async(EmailTo, EmailText, EmailSubject)=>{
     return await transporter.sendMail(mailOptions);
 }
 
-module.exports =EmailSend
+module.exports=EmailSend;

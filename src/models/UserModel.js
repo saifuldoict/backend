@@ -1,8 +1,11 @@
-const mongoose = mongoose('require');
 
-const DataSchema = mongoose.DataSchema({
+const mongoose = require('mongoose');
+
+
+
+const DataSchema = mongoose.Schema({
     email:{type:String, require:true, unique:true, lowercase:true},
-    opt:{type:String, require: true}
+    otp:{type:String, require: true}
 },
 {
     timestamps:true, versionKey:false

@@ -27,6 +27,8 @@ router.get('/ProductReviewList/:ProductID', ProductController.ProductReviewList)
 router.post('/ProductListByFilter', ProductController.ProductListByFilter)
 
 
-
+//Users
+router.get('/UserOTP/:email', UserController.UserOTP)
+router.get('/VerifyLogin/:email/:otp', UserController.VerifyLogin)
 
 module.exports = router;
