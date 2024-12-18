@@ -53,25 +53,35 @@ const VerifyOTPService = async (req) => {
 
 }
 
+const SaveProfileService = async (req) => {
+    try {
+        let user_id=req.headers.user_id;
+        let reqBody=req.body;
+        reqBody.userID=user_id;
+        
+        await ProfileModel.updateOne({userID:user_id},{$set:reqBody},{upsert:true})
+        
+        return {status:"success", message:"Profile Save Success"}
+    }catch (e) {
+        return {status:"fail", message:"Something Went Wrong"}
+    }
+ }
 
-const UserLogoutService = async(req)=>{
-    
+
+ const ReadProfileService = async (req) => {
+    try {
+        let user_id=req.headers.user_id;
+        let result= await ProfileModel.find({userID:user_id})
+        return {status:"success", data:result}
+    }catch (e) {
+        return {status:"fail", message:"Something Went Wrong"}
+    }
 }
-const CreateProfileService = async(req)=>{
-    
-}
-const UpdateProfileService = async(req)=>{
-    
-}
-const ReadProfileService = async(req)=>{
-    
-}
+
 
 module.exports={
     UserOTPService,
     VerifyOTPService,
-    UserLogoutService,
-    CreateProfileService,
-    UpdateProfileService,
+    SaveProfileService,
     ReadProfileService
 }

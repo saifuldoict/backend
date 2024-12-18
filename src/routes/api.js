@@ -5,6 +5,7 @@ const WishListController = require('../controllers/WishListController');
 const CartListController = require('../controllers/CartListController');
 const InvoiceController = require('../controllers/InvoiceController');
 const FeaturesController = require('../controllers/FeaturesController');
+const AuthVerification = require('../middlewares/AuthVerification');
 const { Route } = require('express');
 
 const router = express.Router();
@@ -30,5 +31,10 @@ router.post('/ProductListByFilter', ProductController.ProductListByFilter)
 //Users
 router.get('/UserOTP/:email', UserController.UserOTP)
 router.get('/VerifyLogin/:email/:otp', UserController.VerifyLogin)
+router.get('/UserLogout',AuthVerification,UserController.UserLogout)
+router.post('/CreateProfile',AuthVerification,UserController.CreateProfile)
+router.post('/UpdateProfile',AuthVerification,UserController.UpdateProfile)
+router.get('/ReadProfile',AuthVerification,UserController.ReadProfile)
+
 
 module.exports = router;
