@@ -1,6 +1,8 @@
 const UserModel = require("../models/UserModel")
 const EmailSend = require("../utility/EmailHelper")
+const ProfileModel=require("../models/ProfileModel")
 const { EncodeToken } = require("../utility/TokenHelper")
+const { use } = require("../routes/api")
 
 
 const UserOTPService = async(req)=>{
@@ -58,7 +60,7 @@ const SaveProfileService = async (req) => {
         let user_id=req.headers.user_id;
         let reqBody=req.body;
         reqBody.userID=user_id;
-        
+   
         await ProfileModel.updateOne({userID:user_id},{$set:reqBody},{upsert:true})
         
         return {status:"success", message:"Profile Save Success"}
@@ -74,7 +76,7 @@ const SaveProfileService = async (req) => {
         let result= await ProfileModel.find({userID:user_id})
         return {status:"success", data:result}
     }catch (e) {
-        return {status:"fail", message:"Something Went Wrong"}
+        return {status:"Fail", message:"Something Went Wrong"}
     }
 }
 

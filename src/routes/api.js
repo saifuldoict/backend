@@ -6,7 +6,7 @@ const CartListController = require('../controllers/CartListController');
 const InvoiceController = require('../controllers/InvoiceController');
 const FeaturesController = require('../controllers/FeaturesController');
 const AuthVerification = require('../middlewares/AuthVerification');
-const { Route } = require('express');
+
 
 const router = express.Router();
 

@@ -1,6 +1,6 @@
-const mongoose = mongoose('require');
+const mongoose = require("mongoose")
 
-const DataSchema = mongoose.DataSchema({
+const DataSchema = mongoose.Schema({
     userID:{type:mongoose.Schema.Types.ObjectId, required:true},
     cus_add:{type:String},
         cus_city:{type:String},
@@ -22,6 +22,6 @@ const DataSchema = mongoose.DataSchema({
 {
     timestamps:true, versionKey:false
 })
-const ProfilesModel= mongoose.model('profiles', DataSchema)
+const ProfileModel= mongoose.model('profiles', DataSchema)
 
-module.exports=ProfilesModel
+module.exports=ProfileModel
